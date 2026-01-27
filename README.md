@@ -1,63 +1,52 @@
-# 🚀 Fast S3 RAG with Streamlit, FAISS & Ollama
+**🧠 Agentic RAG System with S3, FAISS & Ollama**
 
-A **high-performance Retrieval-Augmented Generation (RAG)** application that:
-- Indexes **PDFs stored in AWS S3**
-- Creates embeddings using **HuggingFace**
-- Stores vectors in **FAISS**
-- Answers questions using **Ollama (Phi-3 Mini)**
-- Falls back to **Web Search (DuckDuckGo)** if PDFs don’t contain the answer
+This project is an Agentic Retrieval-Augmented Generation (RAG) system that allows users to upload PDF documents to AWS S3 and interact with them through an autonomous AI agent.
+The agent dynamically decides whether to retrieve information from internal PDFs, perform a web search, or generate an answer using its own reasoning, following a ReAct (Reason–Act–Observe) architecture.
 
-Built with **speed and simplicity** in mind ⚡
+The application is built with Streamlit for an interactive UI, FAISS for fast vector search, HuggingFace embeddings for semantic understanding, and Ollama (Phi-3) as the local LLM.
 
----
+**🔑 Key Highlights**
 
-## 🧠 Architecture Overview
+🤖 Agentic AI (ReAct Architecture)
+The LLM autonomously chooses which tool to use (PDF Search or Web Search) and iteratively reasons until a final answer is produced.
 
-PDFs (AWS S3)
-↓
-PyPDFLoader
-↓
-Text Chunking
-↓
-HuggingFace Embeddings
-↓
-FAISS Vector DB
-↓
-Retriever (Top-K)
-↓
-Ollama LLM (Phi-3)
-↓
-Web Search Fallback
+📂 Cloud-Based Knowledge Management
+PDF documents are stored in AWS S3, allowing scalable and persistent document storage.
+
+🔍 High-Performance RAG Pipeline
+
+PDF parsing using LangChain loaders
+
+Chunking with overlap for context preservation
+
+Vector indexing using FAISS
+
+🌐 Web Search Fallback
+If relevant information is not found in PDFs, the agent can query the web using DuckDuckGo.
+
+🧠 Local LLM Inference
+Uses Ollama (Phi-3 Mini) for fast, private, and offline-friendly inference.
+
+🧠 Short-Term Agent Memory
+Maintains a reasoning scratchpad to track previous actions and observations.
+
+**🖥️ Interactive Streamlit UI**
+
+Upload / delete PDFs from S3
 
 
----
+User Query
+   ↓
+Agent (LLM – ReAct Loop)
+   ↓
+Decides Action
+   ├── PDF Search (FAISS + S3)
+   ├── Web Search (DuckDuckGo)
+   └── LLM Reasoning
+   ↓
+Final Answer
 
-## ✨ Features
 
-- ☁️ Load **PDFs directly from AWS S3**
-- ⚡ Parallel PDF loading (ThreadPoolExecutor)
-- 📚 Fast semantic search using **FAISS**
-- 🧠 **RAG-first** answering (no hallucination)
-- 🌐 Web fallback if answer not found in PDFs
-- 🤖 Local LLM using **Ollama**
-- 🖥️ Clean **Streamlit UI**
-- 💾 Cached embeddings & retriever for performance
+Re-index documents on demand
 
----
-
-## 🛠️ Tech Stack
-
-| Component | Technology |
-|--------|------------|
-| UI | Streamlit |
-| Storage | AWS S3 |
-| PDF Parsing | LangChain PyPDFLoader |
-| Chunking | RecursiveCharacterTextSplitter |
-| Embeddings | HuggingFace (`intfloat/e5-small-v2`) |
-| Vector DB | FAISS |
-| LLM | Ollama (`phi3:mini`) |
-| Web Search | DuckDuckGo Search |
-| Language | Python |
-
----
-
+Switch between Auto (Agentic), RAG-only, Web-only, and LLM-only modes
