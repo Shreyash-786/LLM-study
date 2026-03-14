@@ -1,4 +1,4 @@
-**🧠 AgRAG System with S3, FAISS & Ollama**
+**🧠  System with S3, FAISS & Ollama**
 
 This project is an Retrieval-Augmented Generation (RAG) system that allows users to upload PDF documents to AWS S3 and interact with them through an autonomous AI agent.
 The agent dynamically decides whether to retrieve information from internal PDFs, perform a web search, or generate an answer using its own reasoning, following a ReAct (Reason–Act–Observe) architecture.
