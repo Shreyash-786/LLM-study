@@ -1,13 +1,13 @@
-**🧠 Agentic RAG System with S3, FAISS & Ollama**
+**🧠 AgRAG System with S3, FAISS & Ollama**
 
-This project is an Agentic Retrieval-Augmented Generation (RAG) system that allows users to upload PDF documents to AWS S3 and interact with them through an autonomous AI agent.
+This project is an Retrieval-Augmented Generation (RAG) system that allows users to upload PDF documents to AWS S3 and interact with them through an autonomous AI agent.
 The agent dynamically decides whether to retrieve information from internal PDFs, perform a web search, or generate an answer using its own reasoning, following a ReAct (Reason–Act–Observe) architecture.
 
 The application is built with Streamlit for an interactive UI, FAISS for fast vector search, HuggingFace embeddings for semantic understanding, and Ollama (Phi-3) as the local LLM.
 
 **🔑 Key Highlights**
 
-🤖 Agentic AI (ReAct Architecture)
+🤖  AI (ReAct Architecture)
 The LLM autonomously chooses which tool to use (PDF Search or Web Search) and iteratively reasons until a final answer is produced.
 
 📂 Cloud-Based Knowledge Management
@@ -49,4 +49,4 @@ Final Answer
 
 Re-index documents on demand
 
-Switch between Auto (Agentic), RAG-only, Web-only, and LLM-only modes
+Switch between Auto  RAG-only, Web-only, and LLM-only modes
